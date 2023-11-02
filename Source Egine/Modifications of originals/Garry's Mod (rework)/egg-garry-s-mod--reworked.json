@@ -8,7 +8,7 @@
     "author": "vilhelm@prytznet.se",
     "description": "Garry's Mod, is a sandbox physics game created by Garry Newman, and developed by his company, Facepunch Studios.",
     "image": "quay.io\/pterodactyl\/core:source",
-    "startup": ".\/srcds_run -game garrysmod -console -maxplayers {{MAX_PLAYERS}} -port {{SERVER_PORT}} +ip 0.0.0.0 +map {{SRCDS_MAP}} -strictportbind -norestart +sv_setsteamaccount {{STEAM_ACC}}",
+    "startup": "./srcds_run -game garrysmod -console -maxplayers {{MAX_PLAYERS}} -port {{SERVER_PORT}} +ip 0.0.0.0 +map {{SRCDS_MAP}} -strictportbind -norestart +sv_setsteamaccount {{STEAM_ACC}} +host_workshop_collection {{WORKSHOPID}}",
     "config": {
         "files": "{}",
         "startup": "{\r\n    \"done\": \"gameserver Steam ID\",\r\n    \"userInteraction\": []\r\n}",
@@ -49,6 +49,15 @@
             "user_viewable": 1,
             "user_editable": 1,
             "rules": "required|integer|max:128"
+        },
+        {
+            "name": "Workshop Collection ID",
+            "description": "The Workshop Collection ID for your Garry's Mod server.",
+            "env_variable": "WORKSHOPID",
+            "default_value": "",
+            "user_viewable": 1,
+            "user_editable": 1,
+            "rules": "required|string|alpha_num"
         }
     ]
 }
